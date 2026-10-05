@@ -178,7 +178,7 @@ static int hungfs_open(const char *path, struct fuse_file_info *fi _U_)
 	struct fuse_context *ctx = fuse_get_context();
 	struct hungfs_args *args = ctx->private_data;
 
-	if (strcmp(path + 1, args->file) == 0)
+	if (args->file && strcmp(path + 1, args->file) == 0)
 		return 0;
 	return -ENOENT;
 }
